@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import 'nextra-theme-docs/style.css';
 import { ThemeToggle } from './components/theme-switch';
+import { LastUpdated } from './components/last-updated';
 
 export const metadata: Metadata = {
   title: "Kevin's 的文档",
@@ -37,6 +38,7 @@ export default async function RootLayout({
           docsRepositoryBase="https://github.com/vkkevin/docs/tree/content"
           sidebar={{ defaultMenuCollapseLevel: 1, autoCollapse: true }}
           footer={footer}
+          lastUpdated={<LastUpdated />}
         >
           {children}
         </Layout>
