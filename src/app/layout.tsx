@@ -10,6 +10,9 @@ import { LastUpdated } from './components/last-updated';
 export const metadata: Metadata = {
   title: "Kevin's 的文档",
   description: "Kevin's 的知识文档",
+  authors: [{ name: "Kevin", url: "https://vkkevin.github.io/docs" }],
+  keywords: [ "Kevin", "Knowledge", "Docs", "Blog" ],
+  // robots: { index: true, follow: true },
 };
 
 // const banner = <Banner storageKey="some-key">Nextra 4.0 is released 🎉</Banner>;
@@ -30,6 +33,7 @@ export default async function RootLayout({
             <Navbar
               logo={<h1 className="text-2xl"> {metadata.title?.toString()}</h1>}
               projectLink="https://github.com/vkkevin/docs"
+              align='left'
             >
               <ThemeToggle lite={true} />
             </Navbar>
@@ -39,6 +43,7 @@ export default async function RootLayout({
           sidebar={{ defaultMenuCollapseLevel: 1, autoCollapse: true }}
           footer={footer}
           lastUpdated={<LastUpdated />}
+          // toc={{title: 'test toc title', float: true, backToTop: true}}
         >
           {children}
         </Layout>
