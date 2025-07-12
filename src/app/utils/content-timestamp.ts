@@ -12,11 +12,16 @@ export async function getLastCommitTimestamp(filePath: string): Promise<number |
   } else {
     relativePath = '.' + absolutePath.replace(contentDir, '');
   }
+  console.log("> contentDir: ", contentDir);
+  console.log("> absolutePath: ", absolutePath);
+  console.log("> relativePath: ", relativePath);
   try {
     const log = await git.log({ file: relativePath, maxCount: 1 });
     if (log.latest) {
-        return new Date(log.latest.date).getTime();
+      console.log("> relativePath: ", relativePath, ", timestamp: ", log.latest.date);
+      return new Date(log.latest.date).getTime();
     }
+    console.error('Failed to get last commit timestamp');
     return null;
   } catch (error) {
     console.error('Failed to get last commit timestamp:', error);
