@@ -15,7 +15,6 @@
 
 ## 📬 联系方式
 
-- QQ：3056782267  
 - Email：kevinken774@gmail.com
 
 ---
