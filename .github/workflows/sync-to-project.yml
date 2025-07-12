@@ -8,6 +8,9 @@ on:
 jobs:
   update-submodules:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout project branch
         uses: actions/checkout@v4
@@ -15,19 +18,25 @@ jobs:
           ref: project/nextra
           token: ${{ secrets.DOCS_SYNC_CONTENT }}
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Update submodules to latest
         run: |
           git submodule update --init --remote --force
           git add .
 
-      - name: Commit and push changes
+      - name: Commit changes
         run: |
           if git diff-index --quiet HEAD --; then
             echo "No submodule updates found"
           else
-            git config user.name "GitHub Actions"
-            git config user.email "actions@github.com"
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
             git commit -m "docs(content): update content submodules"
-            git push origin project/nextra
           fi
+
+      - name: Push changes to project branch
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          branch: project/nextra
+          github_token: ${{ secrets.DOCS_SYNC_CONTENT }}
