@@ -26,6 +26,7 @@ export const LastUpdated: FC<{
         suppressHydrationWarning
       >
         {date.toLocaleDateString(dateLocale, {
+          timeZone: 'Asia/Shanghai',
           year: 'numeric',
           month: '2-digit',
           day: '2-digit',

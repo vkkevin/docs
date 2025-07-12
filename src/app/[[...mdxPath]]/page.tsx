@@ -40,6 +40,7 @@ export default async function Page(props: PageProps) {
     if (timestamp) {
       metadata.timestamp = timestamp;
     }
+    console.log("> metadata: ", metadata);
   }
   return (
     <Wrapper toc={toc} metadata={metadata}>
