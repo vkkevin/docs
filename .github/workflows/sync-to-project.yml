@@ -1,0 +1,33 @@
+name: Sync content to project
+
+on:
+  push:
+    branches:
+      - 'content'
+
+jobs:
+  update-submodules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout project branch
+        uses: actions/checkout@v4
+        with:
+          ref: project/nextra
+          token: ${{ secrets.DOCS_SYNC_CONTENT }}
+          fetch-depth: 0
+
+      - name: Update submodules to latest
+        run: |
+          git submodule update --init --remote --force
+          git add .
+
+      - name: Commit and push changes
+        run: |
+          if git diff-index --quiet HEAD --; then
+            echo "No submodule updates found"
+          else
+            git config user.name "GitHub Actions"
+            git config user.email "actions@github.com"
+            git commit -m "docs(content): update content submodules"
+            git push origin project/nextra
+          fi
