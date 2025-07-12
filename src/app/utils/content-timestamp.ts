@@ -15,7 +15,6 @@ export async function getLastCommitTimestamp(filePath: string): Promise<number |
   try {
     const log = await git.log({ file: relativePath, maxCount: 1 });
     if (log.latest) {
-      console.log("> relativePath: ", relativePath, "date: ", log.latest.date, "timestamp: ", new Date(log.latest.date).getTime());
       return new Date(log.latest.date).getTime();
     }
     console.error('Failed to get last commit timestamp');
