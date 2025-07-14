@@ -25,7 +25,13 @@ export const ThemeToggle: FC<ThemeToggleProps> = ({ lite, className }) => {
   const nextTheme = mounted && resolvedTheme === 'dark' ? 'light' : 'dark'
   return (
     <Button
-      className={cn('x:flex x:items-center x:gap-2', className)}
+      className={({ hover }) =>
+        cn(
+          'x:flex x:items-center x:gap-2 x:cursor-pointer x:rounded-md x:p-2',
+          hover ? 'x:bg-gray-100 x:dark:bg-primary-100/5' : '',
+          className
+        )
+      }
       title="Toggle theme"
       onClick={() => setTheme(nextTheme)}
       type="button"
