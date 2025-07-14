@@ -8,7 +8,6 @@ import { ThemeToggle } from './components/theme-switch';
 import { LastUpdated } from './components/last-updated';
 
 export const metadata: Metadata = {
-  icons: { icon: "/favicon.ico" },
   title: "Kevin's 的文档",
   description: "Kevin's 的知识文档",
   authors: [{ name: "Kevin", url: "https://vkkevin.github.io/docs" }],
