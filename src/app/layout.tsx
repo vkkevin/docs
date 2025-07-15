@@ -1,18 +1,17 @@
 import { Footer, Layout, Navbar } from 'nextra-theme-docs';
-import { Banner, Head } from 'nextra/components';
+import { Head } from 'nextra/components';
 import { getPageMap } from 'nextra/page-map';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
-import 'nextra-theme-docs/style.css';
+import '@/app/styles/index.css';
 import { ThemeToggle } from './components/theme-switch';
 import { LastUpdated } from './components/last-updated';
 
 export const metadata: Metadata = {
-  icons: { icon: "favicon.ico" },
   title: "Kevin's 的文档",
   description: "Kevin's 的知识文档",
   authors: [{ name: "Kevin", url: "https://vkkevin.github.io/docs" }],
-  keywords: [ "Kevin", "Knowledge", "Docs", "Blog" ],
+  keywords: [ "Kevin", "Knowledge", "Docs", "Blog", "知识", "文档", "博客" ],
   // robots: { index: true, follow: true },
 };
 
@@ -25,7 +24,7 @@ export default async function RootLayout({
   children: ReactNode;
 }) {
   return (
-    <html lang="en" dir="ltr" suppressHydrationWarning>
+    <html lang="zh" dir="ltr" suppressHydrationWarning>
       <Head />
       <body>
         <Layout
@@ -51,8 +50,22 @@ export default async function RootLayout({
           pageMap={await getPageMap()}
           docsRepositoryBase="https://github.com/vkkevin/docs/tree"
           sidebar={{ defaultMenuCollapseLevel: 1, autoCollapse: true }}
+          lastUpdated={<LastUpdated locale='zh'>最近更新于</LastUpdated>}
+          themeSwitch={{
+            dark: "深色模式",
+            light: "浅色模式",
+            system: "跟随系统",
+          }}
+          editLink="编辑该页面"
+          feedback={{
+            content: "页面有问题？点击反馈",
+            labels: "反馈",
+          }}
+          toc={{
+            title: "目录",
+            backToTop: "回到顶部",
+          }}
           footer={footer}
-          lastUpdated={<LastUpdated />}
         >
           {children}
         </Layout>

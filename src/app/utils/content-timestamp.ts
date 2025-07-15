@@ -6,7 +6,7 @@ export async function getLastCommitTimestamp(filePath: string): Promise<number |
   const absolutePath = path.join(process.cwd(), filePath);
 
   const git: SimpleGit = simpleGit({ baseDir: contentDir });
-  var relativePath: string
+  let relativePath: string
   if (filePath.startsWith('content' + path.sep)) {
     relativePath = '.' + filePath.replace('content', '');
   } else {
