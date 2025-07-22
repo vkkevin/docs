@@ -6,5 +6,6 @@ export default {
   about: '关于我',
   README: {
     display: 'hidden'
-  }
+  },
+  CPP: 'C++'
 }
