@@ -7,7 +7,7 @@ export default {
   README: {
     display: 'hidden'
   },
-  CPP: 'C++',
-  Qt: 'Qt',
-  Misc: '杂项'
+  cpp: 'C++',
+  qt: 'Qt',
+  misc: '杂项'
 }
