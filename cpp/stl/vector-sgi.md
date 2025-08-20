@@ -14,41 +14,42 @@
 - _Vector_base 主要用于存储管理和存储接口
 - vector 包含各种操作接口
 
-### 关系图如下
+### 类关系图
 
 ```mermaid
 classDiagram
-class _Vector_base
-class vector
+class _Vector_base {
+    #_M_start
+    #_M_finish
+    #_M_end_of_storage
+    +get_allocator()
+    #_M_allocate()
+    #_M_deallocate()
+}
 
-_Vector_base : -_M_start
-_Vector_base : -_M_finish
-_Vector_base : -_M_end_of_storage
-_Vector_base : +get_allocator()
-_Vector_base : -_M_allocate()
-_Vector_base : -_M_deallocate()
-
-vector : +begin()
-vector : +end()
-vector : +rbegin()
-vector : +rend()
-vector : +size()
-vector : +max_size()
-vector : +capacity()
-vector : +empty()
-vector : +operator=()
-vector : +operator\[\]()
-vector : +front()
-vector : +back()
-vector : +push_back()
-vector : +pop_back()
-vector : +insert()
-vector : +erase()
-vector : +clear()
-vector : +swap()
-vector : +assign()
-vector : +resize()
-vector : +reserve()
+class vector {
+    +begin()
+    +end()
+    +rbegin()
+    +rend()
+    +size()
+    +max_size()
+    +capacity()
+    +empty()
+    +operator=()
+    +operator\[\]()
+    +front()
+    +back()
+    +push_back()
+    +pop_back()
+    +insert()
+    +erase()
+    +clear()
+    +swap()
+    +assign()
+    +resize()
+    +reserve()
+}
 
 _Vector_base <|-- vector
 
@@ -58,7 +59,7 @@ _Vector_base <|-- vector
 
 > 存储管理主要在基类 _Vector_base 中实现，下列是使用 SGI 简单分配器的实现源码
 
-### SGI 源码
+### 基类 SGI 版本源码解析
 
 ```c++
 template <class _Tp, class _Alloc> 
@@ -597,5 +598,3 @@ for (auto it = v.begin(); it != v.end(); ) {
     else ++it;
 }
 ```
-
----
