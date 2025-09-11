@@ -4,5 +4,6 @@ export default {
   'unique-pointer-gnu': '独占指针(GNU版本)',
   'shared-pointer-gnu': '共享指针(GNU版本)',
   'tuple-gnu': 'tuple(GNU版本)',
-  'iterator-sgi': '迭代器(SGI版本)'
+  'iterator-sgi': '迭代器(SGI版本)',
+  'move-gnu': '移动语义(GNU版本)',
 }
