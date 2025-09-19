@@ -26,9 +26,11 @@ jobs:
           git submodule update --init --remote --force
           git add .
           if git diff-index --quiet HEAD --; then
-            echo "has_changes=true" >> $GITHUB_OUTPUT
-          else 
+            echo "No submodule updates found"
             echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Submodule updated"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
           fi
       
       - name: Move assets to public directory of project
