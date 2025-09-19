@@ -10,7 +10,10 @@ const nextConfig = withNextra({
   output: 'export',
   basePath: process.env.DOCS_BASE_PATH,
   reactStrictMode: true,
-  devIndicators: false
+  devIndicators: false,
+  images: {
+    unoptimized: true,
+  }
 });
 
 export default nextConfig;
