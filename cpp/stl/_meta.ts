@@ -1,5 +1,6 @@
 export default {
   'library': '标准库各平台实现',
+  'container': 'STL 容器',
   'iterator-sgi': '迭代器(SGI版本)',
   'vector-sgi': 'vector(SGI版本)',
   'deque-sgi': 'deque(SGI版本)',
