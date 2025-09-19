@@ -32,6 +32,10 @@ jobs:
           fetch-depth: 0
           submodules: true
 
+      - name: Move assets of content to public directory of project
+        run: |
+          mv content/assets public/
+
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
