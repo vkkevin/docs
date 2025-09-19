@@ -159,7 +159,7 @@ int main() {
     2. 缓存方面因为 MESI 协议，各个 CPU 的缓存之间不存在不一致问题，所以缓存和主存可以抽象为一个共享的内存
     3. 总线锁，x86 提供了 lock 前缀 ，lock 前缀可以修饰一些指令来达到 read-modify-write 原子性的效果，比如最常见的 read-modify-write 指令 ADD，CPU 需要从内存中取出变量，加一后再写回内存，lock 前缀可以让当前 CPU 锁住总线，让其他 CPU 无法访问内存，从而保证要修改的变量不会在修改中途被其他 CPU 访问，从而达到原子性 ADD 的效果。在 x86 中还有其他的指令自带 lock 前缀的效果，比如 XCHG 指令。带锁缓存行的指令在锁释放的时候会把 Store Buffer 刷入共享存储
 3. 根据上述特点可以绘制以下模型：
-    ![抽象内存模型](../assets/images/cpp/memory-order-1.png)
+    ![抽象内存模型](/assets/images/cpp/memory-order-1.png)
 
 ### x86 强内存模型常见问题
 

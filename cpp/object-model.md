@@ -64,7 +64,7 @@ Base (0x0x1344e240) 0 // 表示 Base 的偏移量为 0
 
 Derived 类实例和虚表可视化内存布局情况如下图所示：
 
-![object-model-1](../assets/images/cpp/object-model-1.svg)
+![object-model-1](/assets/images/cpp/object-model-1.svg)
 
 ---
 
@@ -119,7 +119,7 @@ Base (0x0x1343e240) 0
 
 Derived 类实例和虚表可视化内存布局情况如下图所示：
 
-![object-model-2](../assets/images/cpp/object-model-2.svg)
+![object-model-2](/assets/images/cpp/object-model-2.svg)
 
 ---
 
@@ -204,7 +204,7 @@ Base2 (0x0x133565a0) 16 // Base2 的偏移为 16 字节
 
 Derived 类实例和虚表可视化内存布局情况如下图所示：
 
-![object-model-3](../assets/images/cpp/object-model-3.svg)
+![object-model-3](/assets/images/cpp/object-model-3.svg)
 
 ---
 
@@ -290,7 +290,7 @@ Base2 (0x0x133755a0) 16
 
 Derived 类实例和虚表可视化内存布局情况如下图所示：
 
-![object-model-4](../assets/images/cpp/object-model-4.svg)
+![object-model-4](/assets/images/cpp/object-model-4.svg)
 
 ---
 
@@ -339,7 +339,7 @@ Base (0x0x1340c000) 12 virtual // 表示 Base 在 Derived 实例中的起始偏�
 
 Derived 类实例和虚表可视化内存布局情况如下图所示：
 
-![object-model-5](../assets/images/cpp/object-model-5.svg)
+![object-model-5](/assets/images/cpp/object-model-5.svg)
 
 ---
 
@@ -413,7 +413,7 @@ Base (0x0x1340f2a0) 16 virtual
 
 Derived 类实例和虚表可视化内存布局情况如下图所示：
 
-![object-model-6](../assets/images/cpp/object-model-6.svg)
+![object-model-6](/assets/images/cpp/object-model-6.svg)
 
 ---
 
@@ -621,7 +621,7 @@ Base1 (0x0x1343c4e0) alternative-path // 确认Base1为共享实例（无冗余�
 
 Derived 类实例和虚表可视化内存布局情况如下图所示：
 
-![object-model-7](../assets/images/cpp/object-model-7.svg)
+![object-model-7](/assets/images/cpp/object-model-7.svg)
 
 ---
 
@@ -923,4 +923,4 @@ Base2 (0x0x13475a20) alternative-path
 
 Derived 类实例和虚表可视化内存布局情况如下图所示：
 
-![object-model-8](../assets/images/cpp/object-model-8.svg)
+![object-model-8](/assets/images/cpp/object-model-8.svg)

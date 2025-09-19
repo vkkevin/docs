@@ -21,19 +21,27 @@ jobs:
           persist-credentials: false
 
       - name: Update submodules to latest
+        id: sync_content
         run: |
           git submodule update --init --remote --force
           git add .
+          if git diff-index --quiet HEAD --; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else 
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Move assets to public directory of project
+        if: ${{ steps.sync_content.outputs.has_changes == 'true' }}
+        run: |
+          mv content/assets public/
 
       - name: Commit changes
+        if: ${{ steps.sync_content.outputs.has_changes == 'true' }}
         run: |
-          if git diff-index --quiet HEAD --; then
-            echo "No submodule updates found"
-          else
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git commit -m "docs(content): update content submodules"
-          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "docs(content): update content submodules"
 
       - name: Push changes to project branch
         uses: ad-m/github-push-action@v0.6.0
