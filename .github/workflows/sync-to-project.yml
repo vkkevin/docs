@@ -33,11 +33,6 @@ jobs:
             echo "has_changes=true" >> $GITHUB_OUTPUT
           fi
       
-      - name: Move assets to public directory of project
-        if: ${{ steps.sync_content.outputs.has_changes == 'true' }}
-        run: |
-          mv content/assets public/
-
       - name: Commit changes
         if: ${{ steps.sync_content.outputs.has_changes == 'true' }}
         run: |
