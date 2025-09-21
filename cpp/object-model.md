@@ -924,3 +924,12 @@ Base2 (0x0x13475a20) alternative-path
 Derived 类实例和虚表可视化内存布局情况如下图所示：
 
 ![object-model-8](/assets/images/cpp/object-model-8.svg)
+
+
+## 引用
+
+- [深入理解C++对象模型(开始)--由virtual继承说起(续）](https://segmentfault.com/a/1190000041507371)
+- [深入理解C++对像模型--vtable 布局](https://zhuanlan.zhihu.com/p/496115833)
+- [深入理解C++对象模型(开始)--由virtual继承说起(续）](https://zhuanlan.zhihu.com/p/462519480)
+- [C++ Virtual Table Tables(VTT)](https://nimrod.blog/posts/cpp-virtual-table-tables/)
+- [C++在gcc下的单继承，多继承，虚继承的内存布局](https://www.freesion.com/article/29161335768/#_15)
