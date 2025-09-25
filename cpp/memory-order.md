@@ -1,4 +1,4 @@
-# c++ 原子操作与内存序
+# 原子操作与内存序
 
 ## 1. 原子操作简介
 - **原子操作**：操作不可被中断，要么全部完成，要么完全不发生。
@@ -347,10 +347,22 @@ int data = 0;
 std::atomic<bool> ready{false};
 
 void producer() {
+    /**
+     * 以下代码相当于 StoreStore，类似于
+     *   store 42 to data
+     *   sfence
+     *   store true to ready（atomic）
+     */
     data = 42;
     ready.store(true, std::memory_order_relaxed);
 }
 void consumer() {
+    /**
+     * 以下代码相当于 LoadLoad，类似于
+     *   load ready（atomic）
+     *   lfence
+     *   load data
+     */
     while (!ready.load(std::memory_order_relaxed));
     printf("%d\n", data);
 }
@@ -367,10 +379,13 @@ std::mutex mtx;
 MySingleton* get_instance() {
     MySingleton* tmp = instance.load(std::memory_order_acquire);
     if (!tmp) {
+        // 锁的 lock 和 unlock 包含 acquire 和 release 语义，所以在 unlock 后，之前的 store 操作一定会刷入内存
         std::lock_guard<std::mutex> lg(mtx);
         tmp = instance.load(std::memory_order_relaxed);
         if (!tmp) {
             tmp = new MySingleton();
+
+            // 确保上述的 new 操作一定发生在当前操作之前，防止构造还未结束已经赋值给 instance
             instance.store(tmp, std::memory_order_release);
         }
     }
@@ -397,7 +412,9 @@ MySingleton* get_instance() {
 
 
 ## 9. 引用
+- [c++ 内存屏障](https://zhuanlan.zhihu.com/p/605862480)
 - [请问memory_order_acq_rel和memory_order_seq_cst究竟有什么区别?](https://www.zhihu.com/question/561700714)
 - [memory_order_seq_cst和memory_order_acq_rel有什么不同？](https://cloud.tencent.com/developer/ask/sof/104307173)
 - [深入剖析缓存一致性协议(MESI),内存屏障](https://blog.csdn.net/weixin_46215617/article/details/115433851)
 - [TSO于X86内存模型](https://www.cnblogs.com/icwangpu/p/18160699)
+- [C++ Memory Model: Migrating from x86 to ARM](https://arangodb.com/2021/02/cpp-memory-model-migrating-from-x86-to-arm/)

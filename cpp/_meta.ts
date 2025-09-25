@@ -4,7 +4,7 @@ export default {
   'object-model': '类对象内存模型',
   stl: '标准库源码解析',
   rvo: '返回值优化',
-  'memory-order': 'C++ 原子操作与内存序',
+  'memory-order': '原子操作与内存序',
   covariance: '协变',
   'call-once': 'std::call_once',
 }
