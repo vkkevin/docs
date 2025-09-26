@@ -2,20 +2,20 @@
 
 ## 引用折叠
 
-- T& &   -> T&
-- T& &&  -> T&
-- T&& &  -> T&
-- T&& && -> T&&
+- `T& &`   -> `T&`
+- `T& &&`  -> `T&`
+- `T&& &`  -> `T&`
+- `T&& &&` -> `T&&`
 
 ## forward
 
-1. 如果 _Tp 是非引用类型，入参可以是左值也可以是右值；根据引用折叠规则，static_cast<_Tp&&>(__t) 会返回右值引用
-2. 如果 _Tp 是左值引用，入参必须是左值；根据引用折叠规则，static_cast<_Tp&&>(__t) 会返回左值引用
-3. 如果 _Tp 是右值引用，入参可以是左值也可以是右值；根据引用折叠规则，static_cast<_Tp&&>(__t) 会返回右值引用
+1. 如果 `_Tp` 是非引用类型，入参可以是左值也可以是右值；根据引用折叠规则，`static_cast<_Tp&&>(__t)` 会返回右值引用
+2. 如果 `_Tp` 是左值引用，入参必须是左值；根据引用折叠规则，`static_cast<_Tp&&>(__t)` 会返回左值引用
+3. 如果 `_Tp` 是右值引用，入参可以是左值也可以是右值；根据引用折叠规则，`static_cast<_Tp&&>(__t)` 会返回右值引用
 
 ### 完美转发一个左值
 
-```cpp
+```cpp showLineNumbers
 template<typename _Tp>
 _GLIBCXX_NODISCARD constexpr _Tp&& // 万能引用，取决于返回的类型
 forward(typename std::remove_reference<_Tp>::type& __t) noexcept // __t 为左值引用
@@ -24,7 +24,7 @@ forward(typename std::remove_reference<_Tp>::type& __t) noexcept // __t 为左�
 
 ### 完美转发一个右值
 
-```cpp
+```cpp showLineNumbers
 template<typename _Tp>
 _GLIBCXX_NODISCARD constexpr _Tp&& // 万能引用，取决于返回的类型
 forward(typename std::remove_reference<_Tp>::type&& __t) noexcept // __t 为右值引用
@@ -41,7 +41,7 @@ forward(typename std::remove_reference<_Tp>::type&& __t) noexcept // __t 为右�
 
 > 转换一个值到右值，__t 匹配左值或右值，一律转换为右值引用
 
-```cpp
+```cpp showLineNumbers
 template<typename _Tp>
 _GLIBCXX_NODISCARD constexpr typename std::remove_reference<_Tp>::type&&
 move(_Tp&& __t) noexcept {
@@ -53,7 +53,7 @@ move(_Tp&& __t) noexcept {
 
 > 获取变量真实地址；因为 & 操作符可能被重写，所以避免使用 & 获取地址
 
-```cpp
+```cpp showLineNumbers
 template<typename _Tp>
 inline _GLIBCXX_CONSTEXPR _Tp*
 __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT

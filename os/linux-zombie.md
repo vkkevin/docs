@@ -20,14 +20,14 @@
     2. 也可以使用 kill 命令单独给父进程发送 SIGCHLD 信号
     
         ```bash
-            kill -s SIGCHLD pid(父进程pid)
+        kill -s SIGCHLD pid(父进程pid)
         ```
 
 3. 直接 kill 父进程也可以杀死所有僵尸进程
 
 信号捕捉示例代码：
 
-```cpp
+```cpp showLineNumbers
 #include <signal.h>
 #include <sys/wait.h>
 #include <iostream>
