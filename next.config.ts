@@ -1,7 +1,11 @@
-import nextra from 'nextra'
+import nextra from 'nextra';
  
 const withNextra = nextra({
   defaultShowCopyCode: true,
+  codeHighlight: true,
+  mdxOptions: {
+    format: 'mdx'
+  },
   search: { codeblocks: false },
   latex: true,
 })

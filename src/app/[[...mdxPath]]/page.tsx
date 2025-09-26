@@ -30,11 +30,11 @@ const Wrapper = getMDXComponents().wrapper
 
 export default async function Page(props: PageProps) {
   const params = await props.params
-  const result = await importPage(params.mdxPath)
-  if (!result) {
+  const pageData = await importPage(params.mdxPath)
+  if (!pageData) {
     notFound();
   }
-  const { default: MDXContent, toc, metadata } = result
+  const { default: MDXContent, toc, metadata, sourceCode } = pageData
   if (process.env.NODE_ENV == "production") {
     const timestamp = await getLastCommitTimestamp(metadata.filePath);
     if (timestamp) {
@@ -42,7 +42,7 @@ export default async function Page(props: PageProps) {
     }
   }
   return (
-    <Wrapper toc={toc} metadata={metadata}>
+    <Wrapper toc={toc} metadata={metadata} sourceCode={sourceCode}>
       <MDXContent {...props} params={params} />
     </Wrapper>
   )
