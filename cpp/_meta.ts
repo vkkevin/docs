@@ -7,4 +7,5 @@ export default {
   'memory-order': '原子操作与内存序',
   covariance: '协变',
   'call-once': 'std::call_once',
+  'lock-free-queue': '无锁队列的实现',
 }
