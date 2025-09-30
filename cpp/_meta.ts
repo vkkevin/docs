@@ -6,6 +6,6 @@ export default {
   rvo: '返回值优化',
   'memory-order': '原子操作与内存序',
   covariance: '协变',
-  'call-once': 'std::call_once',
   'lock-free-queue': '无锁队列的实现',
+  pmr: '多态内存资源',
 }

@@ -10,4 +10,5 @@ export default {
   'shared-pointer-gnu': '共享指针(GNU版本)',
   'tuple-gnu': 'tuple(GNU版本)',
   'move-gnu': '移动语义(GNU版本)',
+  'call-once': 'call_once(GNU版本)',
 }
