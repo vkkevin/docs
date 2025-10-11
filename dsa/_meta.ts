@@ -3,4 +3,5 @@ export default {
   'hash-table': '哈希表',
   'avl-tree': 'AVL 树',
   heap: '堆',
+  sort: '排序',
 }
