@@ -4,4 +4,5 @@ export default {
   'avl-tree': 'AVL 树',
   heap: '堆',
   sort: '排序',
+  backtrack: '回溯',
 }
