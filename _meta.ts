@@ -7,7 +7,7 @@ export default {
   os: '操作系统',
   net: '计算机网络',
   dsa: '数据结构与算法',
-  qt: 'Qt',
+  other: '其他',
   snippets: '代码片段',
   misc: '杂项',
   about: '关于我',
