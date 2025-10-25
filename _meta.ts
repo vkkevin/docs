@@ -8,6 +8,7 @@ export default {
   net: '计算机网络',
   dsa: '数据结构与算法',
   qt: 'Qt',
+  snippets: '代码片段',
   misc: '杂项',
   about: '关于我',
   README: {
