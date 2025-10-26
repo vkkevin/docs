@@ -1,4 +1,4 @@
 export default {
   valgrind: 'Valgrind',
-  Perf: 'Perf',
+  perf: 'Perf',
 }
