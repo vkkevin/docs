@@ -1,3 +1,4 @@
+# 构建 Qt CMake 工程
 ## 一、项目背景 & 目标
 
 在使用 Qt 6 进行跨平台 GUI 开发时，Qt Creator 提供了强大的编辑和构建支持，但现实中我们常常需要一个纯 CMake 工程，不依赖 Qt Creator，方便在命令行、CLion、VSCode 等任意 IDE 下编译与部署。本篇博客记录我在学习 QML 时，如何使用 CMake 完成 Qt 工程构建的全过程，供日后复盘和分享。

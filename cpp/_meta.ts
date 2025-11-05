@@ -8,4 +8,5 @@ export default {
   covariance: '协变',
   'lock-free-queue': '无锁队列的实现',
   pmr: '多态内存资源',
+  'quit-thread': '通知子线程退出',
 }
