@@ -16,10 +16,10 @@ valgrind --leak-check=yes ./example
 
 ## 常用选项
 
-- `--leak-check=yes`选项启用内存泄漏检查
-- `--show-reachable=yes`选项可以显示仍可访问的内存，帮助区分真正的泄漏和正常未释放的内存
-- `--num-callers=20`选项可以显示更长的堆栈跟踪，方便定位问题
-- `--log-file=valgrind.log`选项标志指定 valgrind 输出打印到 valgrind.log 日志文件
+- `--leak-check=yes` 选项启用内存泄漏检查
+- `--show-reachable=yes` 选项可以显示仍可访问的内存，帮助区分真正的泄漏和正常未释放的内存
+- `--num-callers=20` 选项可以显示更长的堆栈跟踪，方便定位问题
+- `--log-file=valgrind.log` 选项标志指定 valgrind 输出打印到 valgrind.log 日志文件
 
 ## 结果解析
 
